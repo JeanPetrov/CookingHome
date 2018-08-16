@@ -1,0 +1,30 @@
+header {
+  height: 75px;
+}
+
+header .container {
+  position: relative;
+}
+
+.logo {
+  font-size: 30px;
+  color: black;
+  position: absolute;
+  top: 15px;
+  left: 0px;
+}
+
+.menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+a {
+  color: black;
+}

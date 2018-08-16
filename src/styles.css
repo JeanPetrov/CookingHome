@@ -1,0 +1,15 @@
+a:hover {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.center {
+  text-align: center;
+}

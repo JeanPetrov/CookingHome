@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1 class="center">Register</h1>
+      <form #registerForm="ngForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" required [(ngModel)]="model.username" #name="ngModel" name="username">
+
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Username is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" #password="ngModel" name="password">
+
+          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            password
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" required [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"
+            name="confirmPassword">
+
+          <div [hidden]="confirmPassword.valid || confirmPassword.pristine" class="alert alert-danger">
+            confirmPassword
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" required [(ngModel)]="model.email" #email="ngModel" name="email">
+
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Email
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName" #firstName="ngModel" name="firstName">
+
+          <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+            firstName
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required [(ngModel)]="model.lastName" #lastName="ngModel" name="lastName">
+
+          <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+            lastName
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age" required [(ngModel)]="model.age" #age="ngModel" name="age">
+
+          <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+            age
+          </div>
+        </div>
+
+        <div class="center">
+          <button type="submit" class="btn btn-success" [disabled]="registerForm.form.invalid">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
