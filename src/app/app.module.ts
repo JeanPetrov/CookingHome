@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 
+import { ErrorInterceptor } from './interceptors/error.interceptors';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +30,11 @@ import { HomeComponent } from './home/home.component';
     ToastrModule.forRoot()
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: JwtInterceptor,
-    //   multi: true
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

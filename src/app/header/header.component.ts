@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../authentication/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { AuthService } from '../authentication/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
       .subscribe(data => {
         localStorage.clear();
         this.authService.authtoken = '';
+        this.toastr.success('Logout', 'Success!');
         this.router.navigate(['/login']);
       })
   }

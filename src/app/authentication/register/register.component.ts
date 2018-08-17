@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     this.authService
       .register(this.model)
       .subscribe(data => {
-        this.toastr.success('Register - ', 'Success!');
+        this.toastr.success('Register', 'Success!');
         this.router.navigate(['/login']);
       });
   }
