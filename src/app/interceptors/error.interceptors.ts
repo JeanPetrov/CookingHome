@@ -15,7 +15,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             .pipe(catchError((err: HttpErrorResponse) => {
                 switch (err.status) {
                     case 401:
-                        this.toastr.error('401 error', 'Warning!');
+                        this.toastr.error('Invalid credentials', 'Warning!');
                         break;
                     case 400:
                         const message = Object.keys(err.error.errors)

@@ -5,6 +5,7 @@ import { authComponents } from './index';
 import { BrowserModule } from '@angular/platform-browser';
 
 
+
 @NgModule({
     declarations: [
         ...authComponents

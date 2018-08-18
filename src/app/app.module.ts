@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RecipeModule } from './recipe/recipe.module';
 
 
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptors';
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
+    RecipeModule,
     ToastrModule.forRoot()
   ],
   providers: [

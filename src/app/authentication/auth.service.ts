@@ -47,7 +47,7 @@ export class AuthService {
     }
 
     isAuthenticated() {
-        return this.currentAuthtoken === localStorage.getItem('authtoken');
+        return localStorage.getItem('authtoken') !== null;
     }
 
     private createAuthHeaders(type: string) {

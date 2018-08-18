@@ -5,9 +5,9 @@
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" required [(ngModel)]="model.username" #name="ngModel" name="username">
+          <input type="text" class="form-control" id="username" required [(ngModel)]="model.username" #username="ngModel" name="username">
 
-          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
             Username is required!
           </div>
         </div>
