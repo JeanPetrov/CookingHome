@@ -50,6 +50,10 @@ export class AuthService {
         return localStorage.getItem('authtoken') !== null;
     }
 
+    isCreator(id: string) {
+        return localStorage.getItem('id') === id;
+    }
+
     private createAuthHeaders(type: string) {
         if (type === 'Basic') {
             return new HttpHeaders({

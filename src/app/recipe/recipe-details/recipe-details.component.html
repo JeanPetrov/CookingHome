@@ -1,3 +1,22 @@
-<p>
-  recipe-details works!
-</p>
+<div *ngIf="recipe | async as r" class="container">
+  <div class="col-lg-8 offset-lg-2">
+    <h3 class="center">{{r.title}}</h3>
+    <img src="{{r.imageUrl}}">
+    <hr>
+    <p>Serves: {{r.serves}}</p>
+    <p>Prep Time: {{r.prepTime}}</p>
+    <p>Cooking: {{r.cookingTime}}</p>
+    <p>Calories: {{r.calories}}</p>
+    <hr>
+    <p>{{r.summary}}</p>
+    <h5>Ingredients:</h5>
+    <p>{{r.ingredients}}</p>
+    <hr>
+    <h5>Directions:</h5>
+    <p>{{r.directions}}</p>
+    <div>
+      <a routerLink="/recipes/details/{{r._id}}" class="btn btn-info">Details</a>
+      <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
+    </div>
+  </div>
+</div>

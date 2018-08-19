@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  dropdownLi: string = 'nav-item dropdown';
+  dropdownMenu: string = 'dropdown-menu';
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
@@ -24,5 +26,11 @@ export class HeaderComponent implements OnInit {
         this.toastr.success('Logout', 'Success!');
         this.router.navigate(['/login']);
       })
+  }
+
+  expand() {
+    this.dropdownLi.endsWith('show') ? this.dropdownLi = 'nav-item dropdown' : this.dropdownLi = 'nav-item dropdown show';
+
+    this.dropdownMenu.endsWith('show') ? this.dropdownMenu = 'dropdown-menu' : this.dropdownMenu = 'dropdown-menu show';
   }
 }

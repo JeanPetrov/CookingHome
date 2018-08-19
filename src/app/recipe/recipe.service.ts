@@ -8,6 +8,8 @@ const appKey = 'kid_S1d8tC-LX';
 const appSecret = '5167761269e64d44a853e32ee9e7e806';
 const registerUrl = `https:///baas.kinvey.com/user/${appKey}`;
 const recipesUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes`;
+const recipesNewUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes?sort={"_kmd.ect":-1}`
+const recipeByIdUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes/`;
 
 @Injectable()
 export class RecipeService {
@@ -27,7 +29,16 @@ export class RecipeService {
     }
 
     getAllRecipes() {
-        return this.http.get(recipesUrl, {
+        return this.http.get(recipesNewUrl, {
+            headers: {
+                'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
+    getRecipeById(id: string) {
+        return this.http.get(recipeByIdUrl + id, {
             headers: {
                 'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
                 'Content-Type': 'application/json'

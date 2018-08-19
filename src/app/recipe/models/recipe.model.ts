@@ -1,6 +1,6 @@
 export class RecipeModel {
     constructor(
-        public id: string,
+        public _id: string,
         public title: string,
         public summary: string,
         public imageUrl: string,
@@ -10,6 +10,6 @@ export class RecipeModel {
         public cookingTime: string,
         public serves: string,
         public calories: string,
-        public createdBy: string
+        public _acl: string
     ) { }
 }
