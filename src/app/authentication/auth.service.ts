@@ -11,7 +11,6 @@ const logoutUrl = `https:///baas.kinvey.com/user/${appKey}/_logout`;
 
 @Injectable()
 export class AuthService {
-    private currentAuthtoken: string;
 
     constructor(private http: HttpClient) {
 
@@ -36,14 +35,6 @@ export class AuthService {
             {
                 headers: this.createAuthHeaders('Kinvey')
             });
-    }
-
-    get authtoken() {
-        return this.authtoken;
-    }
-
-    set authtoken(value: string) {
-        this.currentAuthtoken = value;
     }
 
     isAuthenticated() {

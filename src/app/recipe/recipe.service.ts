@@ -66,7 +66,7 @@ export class RecipeService {
     }
 
     getAllRecipesById(id: string) {
-        return this.http.get(myRecipesUrl + id + '"}', {
+        return this.http.get(myRecipesUrl + id + '"}' + '&sort={"_kmd.ect":-1}', {
             headers: {
                 'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
                 'Content-Type': 'application/json'

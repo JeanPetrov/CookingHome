@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   successfulLogin(data) {
-    this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
     localStorage.setItem('id', data['_id']);
