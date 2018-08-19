@@ -8,13 +8,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthService } from '../authentication/auth.service';
 import { RecipeDeleteComponent } from './recipe-delete/recipe-delete.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
+import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
 
 
 @NgModule({
     declarations: [
         ...recipeComponents,
         RecipeDeleteComponent,
-        MyRecipesComponent
+        MyRecipesComponent,
+        RecipeSearchComponent
     ],
     imports: [
         CommonModule,

@@ -7,6 +7,7 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { AuthGuard } from '../authentication/auth.guard';
 import { RecipeDeleteComponent } from './recipe-delete/recipe-delete.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
+import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
 
 const routes: Route[] = [
     { path: '', pathMatch: 'full', component: RecipeAllComponent, canActivate: [AuthGuard] },
@@ -15,7 +16,8 @@ const routes: Route[] = [
     { path: 'edit/:id', component: RecipeEditComponent, canActivate: [AuthGuard] },
     { path: 'details/:id', component: RecipeDetailsComponent, canActivate: [AuthGuard] },
     { path: 'delete/:id', component: RecipeDeleteComponent, canActivate: [AuthGuard] },
-    { path: 'my', component: MyRecipesComponent, canActivate: [AuthGuard] }
+    { path: 'my', component: MyRecipesComponent, canActivate: [AuthGuard] },
+    { path: 'search', component: RecipeSearchComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({

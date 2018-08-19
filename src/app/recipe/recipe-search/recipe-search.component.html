@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <form #f="ngForm" (submit)="search(f.value)">
+        <input type="text" class="form-control" name="search" ngModel>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <ng-container *ngFor="let r of recipes | async">
+      <div class="col-lg-4" *ngIf="r.title.toLowerCase().includes(searchQuery.toLowerCase()) && searchQuery.length > 0">
+        <h5 class="center">{{r.title}}</h5>
+        <img src="{{r.imageUrl}}">
+        <hr>
+        <p>{{r.summary}}</p>
+        <hr>
+        <p>Cooking: {{r.cookingTime}}</p>
+        <div>
+          <a routerLink="/recipes/details/{{r._id}}" class="btn btn-info">Details</a>
+          <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
+          <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/delete/{{r._id}}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

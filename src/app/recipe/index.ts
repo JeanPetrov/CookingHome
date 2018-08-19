@@ -4,6 +4,7 @@ import { RecipeDetailsComponent } from "./recipe-details/recipe-details.componen
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { RecipeDeleteComponent } from "./recipe-delete/recipe-delete.component";
 import { MyRecipesComponent } from "./my-recipes/my-recipes.component";
+import { RecipeSearchComponent } from "./recipe-search/recipe-search.component";
 
 export const recipeComponents = [
     RecipeAllComponent,
@@ -11,5 +12,6 @@ export const recipeComponents = [
     RecipeDetailsComponent,
     RecipeEditComponent,
     RecipeDeleteComponent,
-    MyRecipesComponent
+    MyRecipesComponent,
+    RecipeSearchComponent
 ];
