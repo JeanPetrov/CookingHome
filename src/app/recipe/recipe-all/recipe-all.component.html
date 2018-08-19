@@ -1,3 +1,18 @@
-<p>
-  recipe-all works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let r of recipes | async | paginate : {
+      id: 'recipesAll',
+      itemsPerPage: pageSize,
+      currentPage: currentPage
+    }">
+      <h5 class="center">{{r.title}}</h5>
+      <!-- <img src="{{f.imageUrl}}"> -->
+
+    </div>
+  </div>
+
+  <pagination-controls id="recipesAll" (pageChange)="pageChange($event)" maxSize="9" directionLinks="true" autoHide="true"
+    responsive="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+</div>
