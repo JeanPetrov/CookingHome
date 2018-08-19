@@ -1,3 +1,102 @@
-<p>
-  recipe-edit works!
-</p>
+<div *ngIf="model" class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1 class="center">Edit Recipe</h1>
+      <form #recipeForm="ngForm" (ngSubmit)="edit()">
+        <div class="form-group">
+          <label for="title">Recipe Title</label>
+          <input type="text" class="form-control" id="title" required pattern="^[A-Za-z ]+$" minlength="3" [(ngModel)]="model.title"
+            #title="ngModel" name="title">
+
+          <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+            Title must be at least 3 symbols long and contains only letters!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="summary">Short summary</label>
+          <textarea class="form-control" id="summary" required minlength="10" [(ngModel)]="model.summary" #summary="ngModel" name="summary"
+            rows="5"></textarea>
+
+          <div [hidden]="summary.valid || summary.pristine" class="alert alert-danger">
+            Short summary must be at least 10 symbols long!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="imageUrl">Image Url</label>
+          <input type="text" class="form-control" id="imageUrl" required minlength="10" [(ngModel)]="model.imageUrl" #imageUrl="ngModel"
+            name="imageUrl">
+
+          <div [hidden]="imageUrl.valid || imageUrl.pristine" class="alert alert-danger">
+            Image Url is required!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <input type="text" class="form-control" id="ingredients" required minlength="3" [(ngModel)]="model.ingredients" #ingredients="ngModel"
+            name="ingredients">
+
+          <div [hidden]="ingredients.valid || ingredients.pristine" class="alert alert-danger">
+            Ingredients must be at least 3 symbols long!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="directions">Directions</label>
+          <textarea class="form-control" id="directions" required minlength="10" [(ngModel)]="model.directions" #directions="ngModel"
+            name="directions" rows="5"></textarea>
+
+          <div [hidden]="directions.valid || directions.pristine" class="alert alert-danger">
+            Directions must be at least 10 symbols long!
+          </div>
+        </div>
+
+        <h5 class="center">Additional Informations</h5>
+        <div class="form-group">
+          <label for="prepTime">Preparation Time</label>
+          <input type="text" class="form-control" id="prepTime" required minlength="3" [(ngModel)]="model.prepTime" #prepTime="ngModel"
+            name="prepTime">
+
+          <div [hidden]="prepTime.valid || prepTime.pristine" class="alert alert-danger">
+            Preparation Time must be at least 3 symbols long!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cookingTime">Cooking Time</label>
+          <input type="text" class="form-control" id="cookingTime" required minlength="3" [(ngModel)]="model.cookingTime" #cookingTime="ngModel"
+            name="cookingTime">
+
+          <div [hidden]="cookingTime.valid || cookingTime.pristine" class="alert alert-danger">
+            Cooking Time must be at least 3 symbols long!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="serves">Serves</label>
+          <input type="text" class="form-control" id="serves" required minlength="3" [(ngModel)]="model.serves" #serves="ngModel" name="serves">
+
+          <div [hidden]="serves.valid || serves.pristine" class="alert alert-danger">
+            Serves must be at least 3 symbols long!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="calories">Calories</label>
+          <input type="text" class="form-control" id="calories" required minlength="3" [(ngModel)]="model.calories" #calories="ngModel"
+            name="calories">
+
+          <div [hidden]="calories.valid || calories.pristine" class="alert alert-danger">
+            Calories must be at least 3 symbols long!
+          </div>
+        </div>
+
+        <div class="center">
+          <button type="submit" class="btn btn-warning" [disabled]="recipeForm.form.invalid">EDIT RECIPE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -28,6 +28,24 @@ export class RecipeService {
             });
     }
 
+    editRecipe(id: string, model: RecipeCreateModel) {
+        return this.http.put(recipeByIdUrl + id, model, {
+            headers: {
+                'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
+    deleteRecipe(id: string) {
+        return this.http.delete(recipeByIdUrl + id, {
+            headers: {
+                'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
     getAllRecipes() {
         return this.http.get(recipesNewUrl, {
             headers: {

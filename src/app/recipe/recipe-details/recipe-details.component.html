@@ -15,7 +15,6 @@
     <h5>Directions:</h5>
     <p>{{r.directions}}</p>
     <div>
-      <a routerLink="/recipes/details/{{r._id}}" class="btn btn-info">Details</a>
       <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
     </div>
   </div>

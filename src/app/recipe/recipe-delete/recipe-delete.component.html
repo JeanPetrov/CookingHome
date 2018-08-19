@@ -1,0 +1,67 @@
+<div *ngIf="model" class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1 class="center">Delete Recipe</h1>
+      <form #recipeForm="ngForm" (ngSubmit)="delete()">
+        <div class="form-group">
+          <label for="title">Recipe Title</label>
+          <input disabled type="text" class="form-control" id="title" required pattern="^[A-Za-z ]+$" minlength="3" [(ngModel)]="model.title"
+            #title="ngModel" name="title">
+        </div>
+
+        <div class="form-group">
+          <label for="summary">Short summary</label>
+          <textarea disabled class="form-control" id="summary" required minlength="10" [(ngModel)]="model.summary" #summary="ngModel"
+            name="summary" rows="5"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="imageUrl">Image Url</label>
+          <input disabled type="text" class="form-control" id="imageUrl" required minlength="10" [(ngModel)]="model.imageUrl" #imageUrl="ngModel"
+            name="imageUrl">
+        </div>
+
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <input disabled type="text" class="form-control" id="ingredients" required minlength="3" [(ngModel)]="model.ingredients"
+            #ingredients="ngModel" name="ingredients">
+        </div>
+
+        <div class="form-group">
+          <label for="directions">Directions</label>
+          <textarea disabled class="form-control" id="directions" required minlength="10" [(ngModel)]="model.directions" #directions="ngModel"
+            name="directions" rows="5"></textarea>
+        </div>
+
+        <h5 class="center">Additional Informations</h5>
+        <div class="form-group">
+          <label for="prepTime">Preparation Time</label>
+          <input disabled type="text" class="form-control" id="prepTime" required minlength="3" [(ngModel)]="model.prepTime" #prepTime="ngModel"
+            name="prepTime">
+        </div>
+
+        <div class="form-group">
+          <label for="cookingTime">Cooking Time</label>
+          <input disabled type="text" class="form-control" id="cookingTime" required minlength="3" [(ngModel)]="model.cookingTime"
+            #cookingTime="ngModel" name="cookingTime">
+        </div>
+
+        <div class="form-group">
+          <label for="serves">Serves</label>
+          <input disabled type="text" class="form-control" id="serves" required minlength="3" [(ngModel)]="model.serves" #serves="ngModel"
+            name="serves">
+        </div>
+
+        <div class="form-group">
+          <label for="calories">Calories</label>
+          <input disabled type="text" class="form-control" id="calories" required minlength="3" [(ngModel)]="model.calories" #calories="ngModel"
+            name="calories">
+        </div>
+
+        <div class="center">
+          <button type="submit" class="btn btn-danger">DELETE RECIPE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

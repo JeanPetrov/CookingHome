@@ -6,11 +6,13 @@ import { RecipeRoutingModule } from './recipe-routing.module';
 import { RecipeService } from './recipe.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthService } from '../authentication/auth.service';
+import { RecipeDeleteComponent } from './recipe-delete/recipe-delete.component';
 
 
 @NgModule({
     declarations: [
-        ...recipeComponents
+        ...recipeComponents,
+        RecipeDeleteComponent
     ],
     imports: [
         CommonModule,

@@ -5,11 +5,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-recipe-edit',
-  templateUrl: './recipe-edit.component.html',
-  styleUrls: ['./recipe-edit.component.css']
+  selector: 'app-recipe-delete',
+  templateUrl: './recipe-delete.component.html',
+  styleUrls: ['./recipe-delete.component.css']
 })
-export class RecipeEditComponent implements OnInit {
+export class RecipeDeleteComponent implements OnInit {
   id: string;
   model: RecipeCreateModel;
 
@@ -24,12 +24,13 @@ export class RecipeEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  edit() {
+  delete() {
     this.recipeService
-      .editRecipe(this.id, this.model)
+      .deleteRecipe(this.id)
       .subscribe(() => {
-        this.toastr.success('Edited recipe.', 'Success!');
+        this.toastr.success('Deleted recipe.', 'Success!');
         this.router.navigate(['/recipes/all']);
       });
   }
+
 }
