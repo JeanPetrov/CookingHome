@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let r of recipes | async | paginate : {
+      id: 'recipesAll',
+      itemsPerPage: pageSize,
+      currentPage: currentPage
+    }">
+      <h5 class="center">{{r.title}}</h5>
+      <img src="{{r.imageUrl}}">
+      <hr>
+      <p>{{r.summary}}</p>
+      <hr>
+      <p>Cooking: {{r.cookingTime}}</p>
+      <div>
+        <a routerLink="/recipes/details/{{r._id}}" class="btn btn-info">Details</a>
+        <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
+        <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/delete/{{r._id}}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+
+  <pagination-controls class="center" id="recipesAll" (pageChange)="pageChange($event)" maxSize="9" directionLinks="true" autoHide="true"
+    responsive="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+</div>

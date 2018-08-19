@@ -10,6 +10,7 @@ const registerUrl = `https:///baas.kinvey.com/user/${appKey}`;
 const recipesUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes`;
 const recipesNewUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes?sort={"_kmd.ect":-1}`
 const recipeByIdUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes/`;
+const myRecipesUrl = `https:///baas.kinvey.com/appdata/${appKey}/recipes?query={"_acl.creator":"`
 
 @Injectable()
 export class RecipeService {
@@ -57,6 +58,15 @@ export class RecipeService {
 
     getRecipeById(id: string) {
         return this.http.get(recipeByIdUrl + id, {
+            headers: {
+                'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
+    getAllRecipesById(id: string) {
+        return this.http.get(myRecipesUrl + id + '"}', {
             headers: {
                 'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
                 'Content-Type': 'application/json'
