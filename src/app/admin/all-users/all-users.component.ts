@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AdminService } from '../admin.service';
+import { UserModel } from '../models/user.model';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-all-users',
@@ -6,10 +11,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-users.component.css']
 })
 export class AllUsersComponent implements OnInit {
+  users: Observable<UserModel[]>;
 
-  constructor() { }
+  constructor(private adminService: AdminService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.users = this.adminService.getAllUsers();
   }
 
+  restore(id: string) {
+    this.adminService.restoreUser(id)
+      .subscribe(() => {
+        this.toastr.success('Restore user.', 'Success!');
+        this.router.navigate(['/admin/users']);
+      });
+  }
 }

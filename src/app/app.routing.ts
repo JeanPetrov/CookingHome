@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipeModule } from './recipe/recipe.module';
-// import { AdminRoutingModule } from './admin/admin-routing.module';
+import { AdminModule } from './admin/admin.module';
 
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
@@ -20,10 +20,10 @@ const routes: Routes = [
         loadChildren: () => RecipeModule,
         canActivate: [AuthGuard]
     },
-    // {
-    //     path: 'admin',
-    //     loadChildren: () => AdminRoutingModule
-    // },
+    {
+        path: 'admin',
+        loadChildren: () => AdminModule
+    },
     { path: '**', redirectTo: '/home' }
 ];
 

@@ -1,3 +1,36 @@
-<p>
-  all-users works!
-</p>
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Usename</th>
+          <th scope="col">Fullname</th>
+          <th scope="col">Email</th>
+          <th scope="col">Age</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users | async; let i = index" [attr.data-index]="i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{u.username}}</td>
+          <td>{{u.firstName}} {{u.lastName}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.age}}</td>
+          <ng-container *ngIf="!u._kmd.status">
+            <td>
+              <a routerLink="/admin/edit/{{u._id}}" class="btn btn-warning">Edit</a>
+              <a routerLink="/admin/delete/{{u._id}}" class="btn btn-danger">Delete</a>
+            </td>
+          </ng-container>
+          <ng-container *ngIf="u._kmd.status">
+            <td>
+              <a (click)="restore(u._id)" class="btn btn-success">Restore</a>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

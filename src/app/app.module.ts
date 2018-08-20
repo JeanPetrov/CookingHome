@@ -30,7 +30,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptors';
     HttpClientModule,
     AuthModule,
     RecipeModule,
-    // AdminModule,
+    AdminModule,
     ToastrModule.forRoot()
   ],
   providers: [

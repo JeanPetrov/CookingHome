@@ -4,20 +4,20 @@ import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { adminComponents } from './index';
 import { AdminRoutingModule } from './admin-routing.module';
-import { AllUsersComponent } from './all-users/all-users.component';
+import { AdminService } from './admin.service';
 
 @NgModule({
     declarations: [
-        ...adminComponents,
-        AllUsersComponent
+        ...adminComponents
     ],
     imports: [
         CommonModule,
         FormsModule,
-        NgxPaginationModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        NgxPaginationModule
     ],
     providers: [
+        AdminService
     ]
 })
 
