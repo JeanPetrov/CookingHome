@@ -3,11 +3,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { LoginModel } from './models/login.model';
 import { RegisterModel } from './models/register.model';
 
+
 const appKey = 'kid_S1d8tC-LX';
 const appSecret = '5167761269e64d44a853e32ee9e7e806';
 const registerUrl = `https:///baas.kinvey.com/user/${appKey}`;
 const loginUrl = `https:///baas.kinvey.com/user/${appKey}/login`;
 const logoutUrl = `https:///baas.kinvey.com/user/${appKey}/_logout`;
+const adminId = '5f32064a-4a63-464d-aa98-6c26fbbc5d90';
 
 @Injectable()
 export class AuthService {
@@ -43,6 +45,10 @@ export class AuthService {
 
     isCreator(id: string) {
         return localStorage.getItem('id') === id;
+    }
+
+    isAdmin() {
+        return localStorage.getItem('adminId') === adminId;
     }
 
     private createAuthHeaders(type: string) {

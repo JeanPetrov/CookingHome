@@ -1,6 +1,6 @@
 <div *ngIf="model" class="container">
   <div *ngIf="!authService.isCreator(model._acl.creator)">NOT CREATOR</div>
-  <div *ngIf="authService.isCreator(model._acl.creator)">
+  <div *ngIf="authService.isCreator(model._acl.creator) || authService.isAdmin()">
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <h1 class="center">Delete Recipe</h1>

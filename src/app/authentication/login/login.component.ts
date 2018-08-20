@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   successfulLogin(data) {
+    if (data['_kmd'].roles !== undefined) {
+      localStorage.setItem('adminId', data['_kmd']['roles'][0]['roleId']);
+    }
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
     localStorage.setItem('id', data['_id']);

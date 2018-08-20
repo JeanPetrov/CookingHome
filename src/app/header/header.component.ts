@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
       .logout()
       .subscribe(data => {
         localStorage.clear();
-        this.authService.authtoken = '';
         this.toastr.success('Logout', 'Success!');
         this.router.navigate(['/login']);
       })
