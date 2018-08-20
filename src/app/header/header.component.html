@@ -12,6 +12,13 @@
       <li *ngIf="!authService.isAuthenticated()">
         <a routerLink="/login">Login</a>
       </li>
+      <li *ngIf="authService.isAdmin()" (click)="expand2()" [class]="dropdownLi2">
+        <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true
+          " aria-expanded="flase">Admin</a>
+        <div [class]="dropdownMenu2" aria-labelledby="dropdown02">
+          <a class="dropdown-item" routerLink="/admin/users">All users</a>
+        </div>
+      </li>
       <li *ngIf="authService.isAuthenticated()" (click)="expand()" [class]="dropdownLi">
         <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true
         " aria-expanded="flase">Recipes</a>

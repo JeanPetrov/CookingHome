@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {
 
   }
 
@@ -24,6 +25,7 @@ export class AuthGuard implements CanActivate {
     }
 
     this.router.navigate(['/login']);
+    this.toastr.warning("you don't have access to this page", "Warning!")
     return false;
   }
 }

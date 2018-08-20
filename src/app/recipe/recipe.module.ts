@@ -6,9 +6,9 @@ import { RecipeRoutingModule } from './recipe-routing.module';
 import { RecipeService } from './recipe.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthService } from '../authentication/auth.service';
-import { RecipeDeleteComponent } from './recipe-delete/recipe-delete.component';
-import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
+import { MyRecipesComponent } from './my-recipes/my-recipes.component';
+import { RecipeDeleteComponent } from './recipe-delete/recipe-delete.component';
 
 
 @NgModule({

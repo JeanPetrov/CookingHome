@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app.routing';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecipeModule } from './recipe/recipe.module';
+import { AdminModule } from './admin/admin.module';
 
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptors';
     HttpClientModule,
     AuthModule,
     RecipeModule,
+    // AdminModule,
     ToastrModule.forRoot()
   ],
   providers: [
