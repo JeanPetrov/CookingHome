@@ -3,12 +3,13 @@ import { Route, RouterModule } from '@angular/router';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Route[] = [
-    { path: '', pathMatch: 'full', component: AllUsersComponent },
-    { path: 'users', component: AllUsersComponent },
-    { path: 'edit/:id', component: UserEditComponent },
-    { path: 'delete/:id', component: UserDeleteComponent },
+    { path: '', pathMatch: 'full', component: AllUsersComponent, canActivate: [AdminGuard] },
+    { path: 'users', component: AllUsersComponent, canActivate: [AdminGuard] },
+    { path: 'edit/:id', component: UserEditComponent, canActivate: [AdminGuard] },
+    { path: 'delete/:id', component: UserDeleteComponent, canActivate: [AdminGuard] },
 ]
 
 @NgModule({

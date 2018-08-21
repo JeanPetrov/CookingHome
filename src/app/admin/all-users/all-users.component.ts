@@ -19,11 +19,4 @@ export class AllUsersComponent implements OnInit {
     this.users = this.adminService.getAllUsers();
   }
 
-  restore(id: string) {
-    this.adminService.restoreUser(id)
-      .subscribe(() => {
-        this.toastr.success('Restore user.', 'Success!');
-        this.router.navigate(['/admin/users']);
-      });
-  }
 }
