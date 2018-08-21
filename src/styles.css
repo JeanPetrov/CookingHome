@@ -21,3 +21,19 @@ ul {
 img {
   max-width: 100%;
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -60px;
+}
+
+.footer,
+.push {
+  height: 60px;
+}

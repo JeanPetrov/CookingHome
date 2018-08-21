@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   dropdownMenu: string = 'dropdown-menu';
   dropdownLi2: string = 'nav-item dropdown';
   dropdownMenu2: string = 'dropdown-menu';
+  dropleftLi: string = 'nav-item dropdown';
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
@@ -41,5 +42,10 @@ export class HeaderComponent implements OnInit {
     this.dropdownMenu = 'dropdown-menu';
     this.dropdownLi2.endsWith('show') ? this.dropdownLi2 = 'nav-item dropdown' : this.dropdownLi2 = 'nav-item dropdown show';
     this.dropdownMenu2.endsWith('show') ? this.dropdownMenu2 = 'dropdown-menu' : this.dropdownMenu2 = 'dropdown-menu show';
+  }
+
+  expand3() {
+    this.dropleftLi.endsWith('show') ? this.dropleftLi = 'nav-item dropdown' : this.dropleftLi = 'nav-item dropdown show';
+    this.dropdownMenu.endsWith('show') ? this.dropdownMenu = 'dropdown-menu' : this.dropdownMenu = 'dropdown-menu show';
   }
 }

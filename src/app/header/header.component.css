@@ -59,3 +59,37 @@ a:not([href]):not([tabindex]):hover {
 .dropdown-item:hover {
   border: none;
 }
+
+.small-menu {
+  display: none;
+}
+
+@media screen and (max-width: 770px) {
+  .hide {
+    display: none;
+  }
+
+  .small-menu {
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 28px;
+    padding: 0;
+  }
+
+  .small-menu a {
+    padding: 0;
+    padding-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .small-menu span {
+    padding-left: 5px;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-menu.show {
+    right: -25px;
+    left: auto;
+  }
+}

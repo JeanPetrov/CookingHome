@@ -13,6 +13,8 @@ import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 import { ErrorInterceptor } from './interceptors/error.interceptors';
 
@@ -20,7 +22,9 @@ import { ErrorInterceptor } from './interceptors/error.interceptors';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

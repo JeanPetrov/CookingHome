@@ -2,7 +2,7 @@
   <div class="container">
     <a routerLink="/home" class="logo">Cooking Home</a>
 
-    <ul class="menu">
+    <ul class="menu hide">
       <li>
         <a class="nav-link" routerLink="/recipes/search">Search</a>
       </li>
@@ -30,6 +30,32 @@
       </li>
       <li *ngIf="authService.isAuthenticated() ">
         <a class="nav-link" (click)="logout() ">Logout</a>
+      </li>
+    </ul>
+
+    <ul class="small-menu">
+      <li (click)="expand3()" [class]="dropleftLi">
+        <a class="nav-link dropdown-toggle" id="dropdown00" data-toggle="dropdown" aria-haspopup="true
+            " aria-expanded="flase">Menu</a>
+        <div [class]="dropdownMenu" aria-labelledby="dropdown00">
+
+          <a *ngIf="!authService.isAuthenticated()" class="dropdown-item" routerLink="/register">Register</a>
+          <a *ngIf="!authService.isAuthenticated()" class="dropdown-item" routerLink="/login">Login</a>
+          <div *ngIf="authService.isAdmin()">
+            <span class="dropdown-item">Admin</span>
+            <a class="dropdown-item" routerLink="/admin/users">All users</a>
+            <hr>
+          </div>
+          <div *ngIf="authService.isAuthenticated()">
+            <span class="dropdown-item">Recipes</span>
+            <a class="dropdown-item" routerLink="/recipes/search">Search</a>
+            <a class="dropdown-item" routerLink="/recipes/all">All recipes</a>
+            <a class="dropdown-item" routerLink="/recipes/create">Create recipe</a>
+            <a class="dropdown-item" routerLink="/recipes/my">My recipes</a>
+            <hr>
+          </div>
+          <a *ngIf="authService.isAuthenticated()" class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
       </li>
     </ul>
   </div>

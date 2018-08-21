@@ -4,7 +4,7 @@
       <h3 class="headline">My Recipes</h3>
       <span class="line"></span>
     </div>
-    <div class="col-lg-4" *ngFor="let r of recipes | async | paginate : {
+    <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let r of recipes | async | paginate : {
         id: 'recipesAll',
         itemsPerPage: pageSize,
         currentPage: currentPage

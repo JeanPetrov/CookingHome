@@ -6,6 +6,7 @@ import { AdminModule } from './admin/admin.module';
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AuthGuard } from './authentication/auth.guard';
 import { AdminGuard } from './admin/admin.guard';
@@ -26,7 +27,7 @@ const routes: Routes = [
         loadChildren: () => AdminModule,
         canActivate: [AdminGuard]
     },
-    { path: '**', redirectTo: '/home' }
+    { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
