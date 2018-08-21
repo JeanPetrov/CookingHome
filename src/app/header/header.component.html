@@ -4,13 +4,13 @@
 
     <ul class="menu">
       <li>
-        <a routerLink="/recipes/search">Search</a>
+        <a class="nav-link" routerLink="/recipes/search">Search</a>
       </li>
       <li *ngIf="!authService.isAuthenticated()">
-        <a routerLink="/register">Register</a>
+        <a class="nav-link" routerLink="/register">Register</a>
       </li>
       <li *ngIf="!authService.isAuthenticated()">
-        <a routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/login">Login</a>
       </li>
       <li *ngIf="authService.isAdmin()" (click)="expand2()" [class]="dropdownLi2">
         <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true
@@ -29,7 +29,7 @@
         </div>
       </li>
       <li *ngIf="authService.isAuthenticated() ">
-        <a (click)="logout() ">Logout</a>
+        <a class="nav-link" (click)="logout() ">Logout</a>
       </li>
     </ul>
   </div>

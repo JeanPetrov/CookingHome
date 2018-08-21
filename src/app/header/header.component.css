@@ -11,13 +11,14 @@ header .container {
   color: black;
   position: absolute;
   top: 15px;
-  left: 0px;
+  left: 15px;
+  transition: none;
 }
 
 .menu {
   position: absolute;
   top: 25px;
-  right: 0;
+  right: 15px;
 }
 
 .menu li {
@@ -26,5 +27,35 @@ header .container {
 }
 
 a {
-  color: black;
+  color: #707070;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 3px solid transparent;
+  transition: border 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+a:hover {
+  border-bottom: 3px solid gray;
+  color: #505050;
+}
+
+a:not([href]):not([tabindex]) {
+  color: #707070;
+}
+
+a:not([href]):not([tabindex]):hover {
+  color: #505050;
+}
+
+.logo:hover {
+  color: inherit;
+  border: none;
+}
+
+.dropdown-item {
+  border: none;
+}
+
+.dropdown-item:hover {
+  border: none;
 }

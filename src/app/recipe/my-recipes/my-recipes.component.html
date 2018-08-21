@@ -1,20 +1,36 @@
 <div class="container">
   <div class="row">
+    <div class="col-lg-12">
+      <h3 class="headline">My Recipes</h3>
+      <span class="line"></span>
+    </div>
     <div class="col-lg-4" *ngFor="let r of recipes | async | paginate : {
-      id: 'recipesAll',
-      itemsPerPage: pageSize,
-      currentPage: currentPage
-    }">
-      <h5 class="center">{{r.title}}</h5>
-      <img src="{{r.imageUrl}}">
-      <hr>
-      <p>{{r.summary}}</p>
-      <hr>
-      <p>Cooking: {{r.cookingTime}}</p>
+        id: 'recipesAll',
+        itemsPerPage: pageSize,
+        currentPage: currentPage
+      }">
+      <a routerLink="/recipes/details/{{r._id}}">
+        <img src="{{r.imageUrl}}">
+      </a>
+      <div class="recipe-box-content">
+        <a class="title" routerLink="/recipes/details/{{r._id}}">
+          {{r.title}}
+        </a>
+        <div class="recipe-time">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+            viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve" width="512px" height="512px">
+            <g>
+              <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30   S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"
+                fill="#909090" />
+              <path d="M30,6c-0.552,0-1,0.447-1,1v23H14c-0.552,0-1,0.447-1,1s0.448,1,1,1h16c0.552,0,1-0.447,1-1V7C31,6.447,30.552,6,30,6z"
+                fill="#909090" />
+            </g>
+          </svg> {{r.cookingTime}}
+        </div>
+      </div>
       <div>
-        <a routerLink="/recipes/details/{{r._id}}" class="btn btn-info">Details</a>
-        <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
-        <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/delete/{{r._id}}" class="btn btn-danger">Delete</a>
+        <a *ngIf="authService.isCreator(r._acl.creator) || authService.isAdmin()" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
+        <a *ngIf="authService.isCreator(r._acl.creator) || authService.isAdmin()" routerLink="/recipes/delete/{{r._id}}" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
