@@ -11,20 +11,13 @@ import { AdminModule } from './admin/admin.module';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { FooterComponent } from './footer/footer.component';
+import { appComponents } from './index';
 
 import { ErrorInterceptor } from './interceptors/error.interceptors';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    NotFoundComponent,
-    FooterComponent
+    ...appComponents
   ],
   imports: [
     BrowserModule,

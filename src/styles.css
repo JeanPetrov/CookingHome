@@ -37,3 +37,7 @@ body {
 .push {
   height: 60px;
 }
+
+h1 {
+  margin: 50px 0;
+}
