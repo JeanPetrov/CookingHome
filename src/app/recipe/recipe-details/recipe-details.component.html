@@ -1,21 +1,37 @@
 <div *ngIf="recipe | async as r" class="container">
   <div class="col-lg-8 offset-lg-2">
-    <h3 class="center">{{r.title}}</h3>
-    <img src="{{r.imageUrl}}">
-    <hr>
-    <p>Serves: {{r.serves}}</p>
-    <p>Prep Time: {{r.prepTime}}</p>
-    <p>Cooking: {{r.cookingTime}}</p>
-    <p>Calories: {{r.calories}}</p>
-    <hr>
-    <p>{{r.summary}}</p>
-    <h5>Ingredients:</h5>
-    <p>{{r.ingredients}}</p>
-    <hr>
-    <h5>Directions:</h5>
-    <p>{{r.directions}}</p>
-    <div>
-      <a *ngIf="authService.isCreator(r._acl.creator)" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
+    <div class="center">
+      <a *ngIf="authService.isCreator(r._acl.creator) || authService.isAdmin()" routerLink="/recipes/edit/{{r._id}}" class="btn btn-warning">Edit</a>
+      <a *ngIf="authService.isCreator(r._acl.creator) || authService.isAdmin()" routerLink="/recipes/delete/{{r._id}}" class="btn btn-danger">Delete</a>
     </div>
+    <h1 class="center">{{r.title}}</h1>
+    <img src="{{r.imageUrl}}">
+    <div class="recipe-details">
+      <ul>
+        <li>
+          Serves:
+          <strong>{{r.serves}}</strong>
+        </li>
+        <li>
+          Prep Time:
+          <strong>{{r.prepTime}}</strong>
+        </li>
+        <li>
+          Cooking:
+          <strong>{{r.cookingTime}}</strong>
+        </li>
+        <li>
+          Calories:
+          <strong>{{r.calories}}</strong>
+        </li>
+      </ul>
+      <div class="clear-fix"></div>
+    </div>
+    <p class="summary">{{r.summary}}</p>
+    <h3>Ingredients</h3>
+    <p class="inner">{{r.ingredients}}</p>
+    <hr>
+    <h3>Directions</h3>
+    <p class="inner last">{{r.directions}}</p>
   </div>
 </div>

@@ -1,7 +1,8 @@
 <div *ngIf="model" class="container">
 
-  <div *ngIf="!authService.isCreator(model._acl.creator) && !authService.isAdmin()">
-    <h5 class="alert alert-warning center">You don't have access to this page!</h5>
+  <div *ngIf="!authService.isCreator(model._acl.creator) && !authService.isAdmin()" class="center">
+    <h5 class="alert alert-warning center ttt">You don't have access to this page!</h5>
+    <a class="btn btn-success" routerLink="/home">Back to Home</a>
   </div>
   <div *ngIf="authService.isCreator(model._acl.creator) || authService.isAdmin()">
     <div class="row">

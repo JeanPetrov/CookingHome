@@ -4,6 +4,10 @@ img {
   height: 250px;
 }
 
+.container {
+  margin-top: 100px;
+}
+
 .row {
   margin-bottom: 30px;
 }

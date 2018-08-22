@@ -17,7 +17,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptors';
 
 @NgModule({
   declarations: [
-    ...appComponents
+    ...appComponents 
   ],
   imports: [
     BrowserModule,
